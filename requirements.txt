@@ -1,0 +1,16 @@
+Flask
+Flask-WTF
+Flask-SQLAlchemy
+Flask-Cors
+pytest
+pytest-flask
+Flask-Migrate
+sqlalchemy-libsql
+pytest
+pytest-flask
+sphinx
+sphinx_rtd_theme
+flask-security
+apscheduler
+flask-smorest
+marshmallow_sqlalchemy

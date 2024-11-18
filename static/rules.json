@@ -1,0 +1,72 @@
+{
+    "sunker": {
+        "hit_ball": {
+            "validations": [
+                {"type": "required", "field": "ball_number"},
+                {"type": "range", "field": "ball_number", "min": 1, "max": 15},
+                {"type": "required", "field": "force"},
+                {"type": "range", "field": "force", "min": 1, "max": 10}
+            ]
+        },
+        "pocket_ball": {
+            "validations": [
+                {"type": "required", "field": "ball_number"},
+                {"type": "range", "field": "ball_number", "min": 1, "max": 15}
+            ]
+        },
+        "foul": {
+            "validations": [
+                {"type": "required", "field": "reason"}
+            ]
+        }
+    },
+    "american": {
+        "hit_ball": {
+            "validations": [
+                {"type": "required", "field": "ball_number"},
+                {"type": "range", "field": "ball_number", "min": 1, "max": 9},
+                {"type": "required", "field": "force"},
+                {"type": "range", "field": "force", "min": 1, "max": 10}
+            ]
+        },
+        "pocket_ball": {
+            "validations": [
+                {"type": "required", "field": "ball_number"},
+                {"type": "range", "field": "ball_number", "min": 1, "max": 9}
+            ]
+        },
+        "foul": {
+            "validations": [
+                {"type": "required", "field": "reason"}
+            ]
+        }
+    },
+    "8ball": {
+        "hit_ball": {
+            "validations": [
+                {"type": "required", "field": "ball_number"},
+                {"type": "range", "field": "ball_number", "min": 1, "max": 8},
+                {"type": "required", "field": "force"},
+                {"type": "range", "field": "force", "min": 1, "max": 10}
+            ]
+        },
+        "pocket_ball": {
+            "validations": [
+                {"type": "required", "field": "ball_number"},
+                {"type": "range", "field": "ball_number", "min": 1, "max": 8}
+            ]
+        },
+        "ball_potted": {
+            "validations": [
+                {"type": "required", "field": "ball_number"},
+                {"type": "range", "field": "ball_number", "min": 1, "max": 8},
+                {"type": "required", "field": "pocket"}
+            ]
+        },
+        "foul": {
+            "validations": [
+                {"type": "required", "field": "reason"}
+            ]
+        }
+    }
+}
