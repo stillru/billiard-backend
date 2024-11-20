@@ -23,19 +23,24 @@ Testing: Built-in Flask test client (with TDD approach)
 ``` shell
 backend/
 │
-├── app/
-│   ├── api/             # API route definitions
-│   ├── models/          # Database models
-│   ├── schemas/         # Validation schemas
-│   ├── services/        # Business logic for match events
-│   ├── tests/           # Unit and integration tests
-│   ├── utils/           # Helper utilities
-│   └── app.py           # Flask application entry point
-│
+├── api/                 # API route definitions
+├── app.py               # Flask application entry point
+├── config.py            # Configuration settings (e.g., DB connection, API keys)
+├── controllers/         # Request handlers (controllers for routing logic)
+├── decorators.py        # Custom decorators (e.g., authentication, validation)
+├── Dockerfile           # Docker configuration for containerization
+├── extensions.py        # Third-party extensions initialization (e.g., Flask-SQLAlchemy)
+├── __init__.py          # Initializes the application and registers components
 ├── migrations/          # Database migration scripts
+├── models/              # Database models (tables, relationships)
+├── populate_testing_data.py  # Script for populating sample data for testing
+├── README.md            # Project documentation
 ├── requirements.txt     # Python dependencies
-└── README.md            # Project documentation
-
+├── scheduler.py         # Background task scheduler
+├── schemas/             # Validation schemas for data input/output
+├── static/              # Static files (e.g., images, styles)
+├── tests/               # Unit and integration tests
+└── utils.py             # Helper utilities and functions
 ```
 
 ### Setup Instructions
