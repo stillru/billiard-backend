@@ -19,7 +19,7 @@ class Seasons(MethodView):
     @season_bp.response(200, SeasonSchema(many=True))
     @format_response
     def get(self):
-        seasons = Season.quary.all()
+        seasons = Season.query.all()
         season_schema = SeasonSchema(many=True)
         data = season_schema.dump(seasons)
         return data
