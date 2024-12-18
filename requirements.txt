@@ -66,3 +66,4 @@ webargs==8.6.0
 Werkzeug==3.1.3
 WTForms==3.2.1
 yarl==1.18.3
+prometheus-flask-exporter==0.23.1

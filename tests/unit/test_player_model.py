@@ -1,7 +1,7 @@
-from backend.models.player import Player
+from models.player import Player
 import logging
 
-from backend.extensions import db
+from extensions import db
 
 logger = logging.getLogger(__name__)
 """

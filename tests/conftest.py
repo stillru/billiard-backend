@@ -4,9 +4,9 @@ import pytest
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from backend.config import TestConfig
-from backend.app import create_app
-from backend.extensions import db
+from config import TestConfig
+from app import create_app
+from extensions import db
 
 
 @pytest.fixture(scope="session")

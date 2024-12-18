@@ -30,7 +30,6 @@ class Seasons(MethodView):
     def post(self, new_season):
         season_schema = SeasonSchema()
         try:
-            # Пытаемся создать экземпляр модели Season на основе данных
             season = season_schema.load(new_season, session=db.session)
             db.session.add(season)
             db.session.commit()

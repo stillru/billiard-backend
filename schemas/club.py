@@ -1,7 +1,7 @@
 from marshmallow import fields, validates, ValidationError
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema, auto_field
 
-from backend.models.club import Club, Photo
+from models.club import Club, Photo
 
 
 class PhotoSchema(SQLAlchemyAutoSchema):

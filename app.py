@@ -4,12 +4,15 @@ from flask_cors import CORS
 from flask_migrate import upgrade
 from flask_smorest import Api
 from sqlalchemy.orm import scoped_session, sessionmaker
+from prometheus_flask_exporter import PrometheusMetrics
 
 from api import player_bp, news_bp, game_bp, event_bp, season_bp, tags_bp
 from extensions import db, migrate
 from config import ProductionConfig, Config, TestConfig
 from scheduler import start_scheduler
 from utils import log
+
+metrics = PrometheusMetrics.for_app_factory()
 
 
 def create_app(config_class=ProductionConfig):
@@ -41,6 +44,9 @@ def create_app(config_class=ProductionConfig):
     api = Api(app)
     log.info("API framework initialized...")
 
+    # Add metrics to application
+    metrics.info('app_info', 'Application info', version='0.0.1')
+
     # Register blueprints
     api.register_blueprint(player_bp, url_prefix="/api", name="player_api")
     api.register_blueprint(news_bp, url_prefix="/api", name="news_api")
@@ -54,6 +60,7 @@ def create_app(config_class=ProductionConfig):
         # Start the scheduler
         start_scheduler(app)
         log.info(f"Scheduler for {app.name} should be running.")
+        metrics.init_app(app)
 
         # Apply migrations
         if config_class.TESTING:
@@ -70,5 +77,5 @@ def create_app(config_class=ProductionConfig):
 
 
 if __name__ == "__main__":
-    app = create_app(ProductionConfig)
-    app.run(debug=True, port=5000)
+    app = create_app(TestConfig)
+    app.run(debug=True, port=5030)
