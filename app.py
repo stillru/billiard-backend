@@ -77,5 +77,5 @@ def create_app(config_class=ProductionConfig):
 
 
 if __name__ == "__main__":
-    app = create_app(TestConfig)
-    app.run(debug=True, port=5030)
+    app = create_app(ProductionConfig)
+    app.run(port=5030)

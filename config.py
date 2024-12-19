@@ -7,7 +7,7 @@ class Config(object):
     """
 
     LOGGER_NAME = "default_logger"
-    FLASK_ENV = "development"
+    FLASK_ENV = "production"
     DEBUG = False
     TESTING = False
     PORT = 5000
@@ -60,3 +60,4 @@ class DevelopmentConfig(Config):
     """
 
     DEBUG = False
+    FLASK_ENV = "production"
