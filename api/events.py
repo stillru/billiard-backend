@@ -1,15 +1,16 @@
-from flask import request, jsonify, current_app
+import logging
+
+from flask import request, current_app
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
+from marshmallow import ValidationError
+from sqlalchemy.exc import IntegrityError
 
-from decorators import format_response
 from controllers import EventService
+from decorators import format_response
+from extensions import db
 from models.events import GlobalEvent
 from schemas.events import GlobalEventSchema
-from sqlalchemy.exc import IntegrityError
-from marshmallow import ValidationError
-from extensions import db
-import logging
 
 event_bp = Blueprint("event_bp", __name__)
 

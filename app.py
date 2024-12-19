@@ -3,6 +3,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_migrate import upgrade
 from flask_smorest import Api
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 from api import player_bp, news_bp, game_bp, event_bp, season_bp, tags_bp
@@ -25,6 +26,7 @@ def create_app(config_class=ProductionConfig):
     log.info(f"{app.name} is starting...")
     app.config.from_object(config_class)
     log.info(f"Config '{config_class.__name__}' configured...")
+    FlaskInstrumentor().instrument_app(app, enable_commenter=True, commenter_options={})
 
     # Configure logging based on the configuration class
     config_class.configure_logging()
